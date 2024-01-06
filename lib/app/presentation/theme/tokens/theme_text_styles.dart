@@ -64,18 +64,19 @@ class ThemeTextStyles {
   static IAppTextStyle bodyLarge = IAppTextStyle.style(
     _parent.copyWith(
       fontSize: 16,
-      fontWeight: FontWeight.w300,
+      fontWeight: FontWeight.w700,
       // height: 1.18,
-      color: Colors.grey[400],
+      color: Colors.white,
     ),
   );
 
+  // ** EM USO
   static IAppTextStyle bodyMedium = IAppTextStyle.style(
     _parent.copyWith(
       fontSize: 14,
-      fontWeight: FontWeight.w300,
-      // height: 1.18,
-      color: Colors.grey[400],
+      fontWeight: FontWeight.w400,
+      height: 1.71,
+      color: Colors.white,
     ),
   );
 
@@ -99,6 +100,16 @@ class ThemeTextStyles {
 
   //-------------------------------------------- LABEL --------------------------------------------
 
+// ** EM USO
+  static IAppTextStyle labelSmall = IAppTextStyle.style(
+    _parent.copyWith(
+      fontSize: 8,
+      fontWeight: FontWeight.w400,
+      color: Color(0xffFFFFFF),
+    ),
+  );
+
+  // ** EM USO
   static IAppTextStyle labelRegularBold = IAppTextStyle.style(
     _parent.copyWith(
       fontSize: 9,

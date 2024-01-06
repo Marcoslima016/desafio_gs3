@@ -59,7 +59,7 @@ class _HomeTopBarState extends State<HomeTopBar> {
                       "Cliente",
                       style: GoogleFonts.mulish(
                         fontSize: 17.sp,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         color: Colors.white,
                       ),
                     ),

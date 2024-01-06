@@ -22,7 +22,11 @@ class _HomeViewState extends State<HomeView> {
       body: PageBackground(
         child: Column(
           children: const [
+            //-------- TOP BAR --------
             HomeTopBar(),
+
+            //-------- BANK CARDS --------
+            CardsHorizontalList(),
           ],
         ),
       ),
