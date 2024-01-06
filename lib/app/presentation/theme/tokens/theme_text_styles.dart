@@ -30,6 +30,7 @@ class ThemeTextStyles {
       fontSize: 22,
       fontWeight: FontWeight.w700,
       color: Colors.grey[50],
+      height: 1.42,
     ),
   );
 
@@ -55,7 +56,7 @@ class ThemeTextStyles {
     _parent.copyWith(
       fontSize: 14,
       fontWeight: FontWeight.w700,
-      color: Colors.grey[50],
+      color: Color(0xff1A1A1A),
     ),
   );
 
@@ -80,12 +81,13 @@ class ThemeTextStyles {
     ),
   );
 
+  // ** EM USO
   static IAppTextStyle bodySmall = IAppTextStyle.style(
     _parent.copyWith(
-      fontSize: 12,
+      fontSize: 10,
       fontWeight: FontWeight.w400,
-      // height: 1.18,
-      color: Colors.grey[600],
+      color: Color(0xff1A1A1A),
+      height: 1.10,
     ),
   );
 

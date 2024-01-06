@@ -21,15 +21,34 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: Colors.white,
       body: PageBackground(
         child: Column(
-          children: const [
+          children: [
             //-------- TOP BAR --------
-            HomeTopBar(),
+            const HomeTopBar(),
 
             //-------- BANK CARDS --------
-            CardsHorizontalList(),
+            const CardsHorizontalList(),
+
+            //-- DIVISOR --
+            divider(),
+
+            //----- MENU 'FAVORITOS' -----
+            const MyFavoritesMenu(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget divider() {
+    return Container(
+      width: 1.sw,
+      height: 1.h,
+      margin: EdgeInsets.only(
+        left: 16.sp,
+        right: 16.sp,
+        top: 16.sp,
+      ),
+      color: Color(0xffE5E5E5B2).withOpacity(0.7),
     );
   }
 }
