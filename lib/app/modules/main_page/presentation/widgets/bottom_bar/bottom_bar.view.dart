@@ -100,7 +100,6 @@ class BottomBarButton extends StatelessWidget {
   final String title;
   final bool selected;
 
-  final selectedColor = AppTheme.colors.secondary;
   final defaultColor = const Color(0xffB4B4B8);
 
   final Function() onTap;
@@ -124,14 +123,14 @@ class BottomBarButton extends StatelessWidget {
           children: [
             SvgPicture.asset(
               iconPath,
-              color: selected ? selectedColor : defaultColor,
+              color: selected ? AppTheme.colors.primary : defaultColor,
               width: 27.sp,
               height: 27.sp,
               fit: BoxFit.fitHeight,
             ),
             AText.labelRegularBold(
               title,
-              color: selected ? selectedColor : defaultColor,
+              color: selected ? AppTheme.colors.secondary : defaultColor,
             ),
           ],
         ),
