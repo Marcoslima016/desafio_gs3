@@ -18,9 +18,9 @@ class MainPageView extends StatefulWidget {
 class _MainPageViewState extends State<MainPageView> {
   final List<Widget> tabs = [
     const HomeView(),
-    Container(),
-    Container(),
-    Container(),
+    Container(width: 1.sw, height: 1.sh, color: Colors.grey[300]),
+    Container(width: 1.sw, height: 1.sh, color: Colors.grey[300]),
+    Container(width: 1.sw, height: 1.sh, color: Colors.grey[300]),
   ];
 
   int currentIndex = 0;

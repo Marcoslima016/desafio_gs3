@@ -24,6 +24,7 @@ class _AppBottomBarState extends State<AppBottomBar> {
     setState(() {
       currentIndex = index;
     });
+    widget.onChangeIndex(currentIndex);
   }
 
   @override
@@ -99,12 +100,12 @@ class BottomBarButton extends StatelessWidget {
   final String title;
   final bool selected;
 
-  static const selectedColor = Color(0xff2890CF);
-  static const defaultColor = Color(0xffB4B4B8);
+  final selectedColor = AppTheme.colors.secondary;
+  final defaultColor = const Color(0xffB4B4B8);
 
   final Function() onTap;
 
-  const BottomBarButton({
+  BottomBarButton({
     super.key,
     required this.iconPath,
     required this.title,
