@@ -28,12 +28,12 @@ class _AppBottomBarState extends State<AppBottomBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70.h,
+      height: 75.sp,
       width: 1.sw,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(34.sp),
-          topRight: Radius.circular(34.sp),
+          topLeft: Radius.circular(35.sp),
+          topRight: Radius.circular(35.sp),
         ),
         boxShadow: [
           const BoxShadow(
@@ -41,9 +41,9 @@ class _AppBottomBarState extends State<AppBottomBar> {
           ),
           BoxShadow(
             color: Colors.white,
-            spreadRadius: 1,
-            blurRadius: 5,
-            offset: Offset(0, 8.sp),
+            spreadRadius: 1.8,
+            blurRadius: 2.5,
+            offset: Offset(0, 7.5.sp),
           ),
         ],
       ),
@@ -51,6 +51,7 @@ class _AppBottomBarState extends State<AppBottomBar> {
         top: 16.sp,
         left: 16.sp,
         right: 16.sp,
+        bottom: 10.sp,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -122,9 +123,9 @@ class BottomBarButton extends StatelessWidget {
             SvgPicture.asset(
               iconPath,
               color: selected ? AppTheme.colors.primary : defaultColor,
-              width: 27.sp,
+              // width: 27.sp,
               height: 27.sp,
-              fit: BoxFit.fitHeight,
+              fit: BoxFit.none,
             ),
             AText.labelRegularBold(
               title,
