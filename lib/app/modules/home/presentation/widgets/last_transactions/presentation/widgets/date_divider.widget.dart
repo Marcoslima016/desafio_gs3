@@ -78,9 +78,6 @@ class DateDivider extends StatelessWidget {
             );
           } else {
             return Container();
-            // return EmptyDateDividerCard(
-            //   dateText: dividersTexts[index],
-            // );
           }
         },
       );
@@ -97,43 +94,6 @@ class DateDivider extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Color.fromRGBO(229, 229, 229, 0.70),
       ),
-    );
-  }
-}
-
-class EmptyDateDividerCard extends StatelessWidget {
-  const EmptyDateDividerCard({
-    super.key,
-    required this.dateText,
-  });
-
-  final String dateText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        DateDividerCard(
-          dateText: dateText,
-        ),
-        SizedBox(
-          width: 1.sw,
-          height: 62.sp,
-          child: Center(
-            child: Text(
-              "Nenhuma transação realizada nessa data.",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.roboto(
-                color: Colors.grey.withOpacity(0.46),
-                fontSize: 14.5.sp,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

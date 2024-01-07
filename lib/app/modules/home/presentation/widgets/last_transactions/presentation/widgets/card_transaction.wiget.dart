@@ -2,6 +2,7 @@ import 'package:desafio_gs3/lib.imports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CardTransaction extends StatefulWidget {
   const CardTransaction({
@@ -39,18 +40,25 @@ class _CardTransactionState extends State<CardTransaction> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //--------------- ICONE ---------------
-
-              PrimaryCard(
-                child: SizedBox(
-                  width: 45.7.sp,
-                  height: 45.7.sp,
-                  child: Center(
-                    child: _buildIcon(),
+              Stack(
+                children: [
+                  //--------------- ICONE ---------------
+                  PrimaryCard(
+                    child: SizedBox(
+                      width: 45.7.sp,
+                      height: 45.7.sp,
+                      child: Center(
+                        child: _buildIcon(),
+                      ),
+                    ),
                   ),
-                ),
+
+                  //--- BADGE WARNING----
+                  _buildBadgeWarning(),
+                ],
               ),
 
+              //
               Padding(
                 padding: EdgeInsets.only(left: 15.22.w),
                 child: Column(
@@ -102,6 +110,42 @@ class _CardTransactionState extends State<CardTransaction> {
         ],
       ),
     );
+  }
+
+  Widget _buildBadgeWarning() {
+    if (transactionItem.warn) {
+      return Positioned(
+        right: 0,
+        top: 0,
+        child: Container(
+          width: 13.sp,
+          height: 13.sp,
+          decoration: BoxDecoration(
+            color: Color(0xffFFAC31),
+            border: Border.all(
+              color: Color(0xffFF9901),
+              width: 2.sp,
+            ),
+            shape: BoxShape.circle,
+          ),
+          transform: Matrix4.translationValues(1.sp, -2.sp, 0),
+          child: Center(
+            child: Text(
+              "!",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                height: 1,
+                fontSize: 10.5.sp,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ),
+      );
+    } else {
+      return Container();
+    }
   }
 
   Widget _buildInstallmentDisplay() {

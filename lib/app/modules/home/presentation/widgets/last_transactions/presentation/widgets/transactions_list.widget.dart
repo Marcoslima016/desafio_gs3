@@ -29,7 +29,7 @@ class _TransactionsListState extends State<TransactionsList> {
   Widget build(BuildContext context) {
     return Container(
       width: 1.sw,
-      margin: EdgeInsets.only(top: 10.h),
+      margin: EdgeInsets.only(top: 10.sp),
       child: controller.transactionsList.isNotEmpty
           ? ListView.builder(
               key: const Key("wallet_extract_list"),

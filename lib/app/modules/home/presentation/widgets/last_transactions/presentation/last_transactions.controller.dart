@@ -4,6 +4,7 @@ class Transaction {
   final double amount;
   final int installmentAmount;
   final TransactionMarketType marketType;
+  final bool warn;
 
   DateTime get dateTimeParse => DateTime.parse(dateTimeTextRFC);
 
@@ -25,6 +26,7 @@ class Transaction {
     required this.amount,
     required this.installmentAmount,
     required this.marketType,
+    this.warn = false,
   });
 }
 
@@ -49,6 +51,7 @@ class LastTransactionsController {
       amount: 12.61,
       installmentAmount: 0,
       marketType: TransactionMarketType.transport,
+      warn: true,
     ),
     Transaction(
       title: "Carrefour",
