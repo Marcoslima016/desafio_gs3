@@ -22,33 +22,45 @@ class _HomeViewState extends State<HomeView> {
       body: PageBackground(
         child: Column(
           children: [
-            //-------- TOP BAR --------
+            //---------- TOP BAR -----------
             const HomeTopBar(),
 
-            //-------- BANK CARDS --------
+            //--------- BANK CARDS ---------
             const CardsHorizontalList(),
 
-            //-- DIVISOR --
-            divider(),
+            //- DIVISOR -
+            divider(
+              const Color(0xffE5E5E5B2).withOpacity(0.7),
+              16.sp,
+            ),
 
-            //----- MENU 'FAVORITOS' -----
+            //------ MENU 'FAVORITOS' -------
             const MyFavoritesMenu(),
+
+            //- DIVISOR -
+            divider(
+              const Color.fromRGBO(229, 229, 229, 0.70),
+              20.sp,
+            ),
+
+            //----- ULTIMOS LANÇAMENTOS -----
+            const LastTransactionsList(),
           ],
         ),
       ),
     );
   }
 
-  Widget divider() {
+  Widget divider(Color color, double marginTop) {
     return Container(
       width: 1.sw,
       height: 1.h,
       margin: EdgeInsets.only(
         left: 16.sp,
         right: 16.sp,
-        top: 16.sp,
+        top: marginTop,
       ),
-      color: Color(0xffE5E5E5B2).withOpacity(0.7),
+      color: color,
     );
   }
 }
