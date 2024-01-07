@@ -60,6 +60,7 @@ class DateDivider extends StatelessWidget {
         itemCount: dividersTexts.length,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
           if (index == (dividersTexts.length - 1)) {
             return Column(

@@ -33,7 +33,10 @@ class _LastTransactionsState extends State<LastTransactions> {
           //
           //---------------
           Padding(
-            padding: EdgeInsets.only(left: 22.w, right: 22.w),
+            padding: EdgeInsets.only(
+              left: 22.w,
+              right: 22.w,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

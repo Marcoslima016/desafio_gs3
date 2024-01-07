@@ -31,7 +31,7 @@ class AppView extends StatelessWidget {
               primary: AppTheme.colors.primary,
               onPrimary: AppTheme.colors.onPrimary,
               surfaceTint: Colors.red,
-              secondary: Color.fromARGB(255, 70, 70, 70),
+              secondary: AppTheme.colors.secondary,
               onSecondary: Colors.yellow,
               background: Colors.orange,
               onBackground: Colors.grey[400]!,

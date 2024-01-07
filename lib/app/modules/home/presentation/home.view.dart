@@ -14,41 +14,40 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageBackground(
-        child: Column(
-          children: [
-            //-------------- TOP BAR ---------------
+    return PageBackground(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          //-------------- TOP BAR ---------------
 
-            const HomeTopBar(),
+          const HomeTopBar(),
 
-            //------------- BANK CARDS -------------
+          //------------- BANK CARDS -------------
 
-            const CardsHorizontalList(),
+          const CardsHorizontalList(),
 
-            //- DIVISOR -
-            divider(
-              const Color.fromARGB(255, 235, 235, 235).withOpacity(0.7),
-              16.sp,
-            ),
+          //- DIVISOR -
+          divider(
+            const Color.fromARGB(255, 235, 235, 235).withOpacity(0.7),
+            16.sp,
+          ),
 
-            //------- MENU 'MEUS FAVORITOS' --------
+          //------- MENU 'MEUS FAVORITOS' --------
 
-            const MyFavoritesMenu(),
+          const MyFavoritesMenu(),
 
-            //- DIVISOR -
-            divider(
-              const Color.fromRGBO(229, 229, 229, 0.70),
-              20.sp,
-            ),
+          //- DIVISOR -
+          divider(
+            const Color.fromRGBO(229, 229, 229, 0.70),
+            20.sp,
+          ),
 
-            //--------- ULTIMOS LANÇAMENTOS ---------
+          //--------- ULTIMOS LANÇAMENTOS ---------
 
-            const Expanded(
-              child: LastTransactions(),
-            ),
-          ],
-        ),
+          const Expanded(
+            child: LastTransactions(),
+          ),
+        ],
       ),
     );
   }

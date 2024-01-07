@@ -27,59 +27,64 @@ class _TransactionsListState extends State<TransactionsList> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 1.sw,
-      margin: EdgeInsets.only(top: 10.sp),
-      child: controller.transactionsList.isNotEmpty
-          ? ListView.builder(
-              key: const Key("wallet_extract_list"),
+    return controller.transactionsList.isNotEmpty
+        ? Padding(
+            padding: EdgeInsets.only(top: 10.h),
+            child: ListView.builder(
               itemCount: controller.transactionsList.length,
+              padding: EdgeInsets.zero,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //
-                    //------------- DATE DIVIDER -------------
+                return SizedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      //
 
-                    DateDivider(
-                      item: controller.transactionsList[index],
-                      transactions: controller.transactionsList,
-                    ),
+                      // index == 0 ? SizedBox(height: 4.h) : Container(),
 
-                    //--------------- LIST CARD --------------
+                      //------------- DATE DIVIDER -------------
 
-                    CardTransaction(
-                      transactionItem: controller.transactionsList[index],
-                    ),
+                      DateDivider(
+                        item: controller.transactionsList[index],
+                        transactions: controller.transactionsList,
+                      ),
 
-                    //ESPAÇAMENTO NO FINAL DA LISTA
-                    endMargin(index),
-                  ],
+                      //--------------- LIST CARD --------------
+
+                      CardTransaction(
+                        transactionItem: controller.transactionsList[index],
+                      ),
+
+                      //ESPAÇAMENTO NO FINAL DA LISTA
+                      endMargin(index),
+                    ],
+                  ),
                 );
               },
-            )
-          //--------------- LISTA VAZIA --------------
-          : Center(
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 50.h),
-                child: Text(
-                  "Nenhuma transação realizada.",
-                  textAlign: TextAlign.start,
-                  style: GoogleFonts.roboto(
-                    color: const Color.fromARGB(255, 200, 200, 200),
-                    fontSize: 17.sp,
-                    fontWeight: FontWeight.w400,
-                  ),
+            ),
+          )
+        //--------------- LISTA VAZIA --------------
+        : Center(
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 50.h),
+              child: Text(
+                "Nenhuma transação realizada.",
+                textAlign: TextAlign.start,
+                style: GoogleFonts.roboto(
+                  color: const Color.fromARGB(255, 200, 200, 200),
+                  fontSize: 17.sp,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
             ),
-    );
+          );
   }
 
   Widget endMargin(int index) {
     if (index + 1 >= controller.transactionsList.length) {
-      return SizedBox(height: 20.h);
+      return SizedBox(height: 90.h);
     } else {
       return Container();
     }

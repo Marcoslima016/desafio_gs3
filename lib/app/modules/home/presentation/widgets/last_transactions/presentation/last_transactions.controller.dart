@@ -60,5 +60,12 @@ class LastTransactionsController {
       installmentAmount: 3,
       marketType: TransactionMarketType.superMarket,
     ),
+    Transaction(
+      title: "Carrefour",
+      dateTimeTextRFC: "2023-09-03 20:00:00",
+      amount: 100,
+      installmentAmount: 1,
+      marketType: TransactionMarketType.superMarket,
+    ),
   ];
 }

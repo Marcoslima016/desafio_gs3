@@ -32,16 +32,23 @@ class _HomeTopBarState extends State<HomeTopBar> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                //--------- BOTAO MENU --------
+                //----------------- BOTAO MENU ----------------
 
-                SvgPicture.asset(
-                  "assets/icons/Group 530128.svg",
-                  color: Colors.white,
-                  width: 18.75.sp,
-                  fit: BoxFit.fitWidth,
+                SizedBox(
+                  width: 55.sp,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/Group 530128.svg",
+                        color: Colors.white,
+                        width: 18.75.sp,
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ],
+                  ),
                 ),
 
-                //--------- TITULO --------
+                //-------------------- TITULO -------------------
 
                 Row(
                   children: [
@@ -64,61 +71,65 @@ class _HomeTopBarState extends State<HomeTopBar> {
                   ],
                 ),
 
-                //----- BOTOES CHAT/NOTIFICACOES ----
+                //------------- BOTOES CHAT/NOTIFICACOES ------------
 
-                Row(
-                  children: [
-                    //--- CHAT ---
-                    SvgPicture.asset(
-                      "assets/icons/chat2.svg",
-                      color: Colors.white,
-                      width: 21.sp,
-                      fit: BoxFit.fitWidth,
-                    ),
-                    SizedBox(width: 8.w),
+                SizedBox(
+                  width: 55.sp,
+                  child: Row(
+                    children: [
+                      //----- CHAT -----
+                      SvgPicture.asset(
+                        "assets/icons/chat2.svg",
+                        color: Colors.white,
+                        width: 21.sp,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(width: 8.w),
 
-                    //--- NOT ---
-                    Stack(
-                      children: [
-                        SvgPicture.asset(
-                          "assets/icons/Shape.svg",
-                          color: Colors.white,
-                          width: 15.sp,
-                          fit: BoxFit.fitWidth,
-                        ),
-                        //BADGE CONTADOR
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          child: Container(
-                            width: 12.sp,
-                            height: 12.sp,
-                            decoration: BoxDecoration(
-                              color: Color(0xff2890CF),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 2.sp,
-                              ),
-                              shape: BoxShape.circle,
-                            ),
-                            transform: Matrix4.translationValues(5.sp, -4.5.sp, 0),
-                            child: Center(
-                              child: Text(
-                                "3",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
+                      //--- NOTIFICACAO ---
+                      Stack(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/icons/Shape.svg",
+                            color: Colors.white,
+                            width: 15.sp,
+                            fit: BoxFit.fitWidth,
+                          ),
+
+                          //BADGE CONTADOR
+                          Positioned(
+                            right: 0,
+                            top: 0,
+                            child: Container(
+                              width: 12.sp,
+                              height: 12.sp,
+                              decoration: BoxDecoration(
+                                color: Color(0xff2890CF),
+                                border: Border.all(
                                   color: Colors.white,
-                                  height: 1,
-                                  fontSize: 7.sp,
-                                  fontWeight: FontWeight.w500,
+                                  width: 2.sp,
+                                ),
+                                shape: BoxShape.circle,
+                              ),
+                              transform: Matrix4.translationValues(5.sp, -4.5.sp, 0),
+                              child: Center(
+                                child: Text(
+                                  "3",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    height: 1,
+                                    fontSize: 7.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
