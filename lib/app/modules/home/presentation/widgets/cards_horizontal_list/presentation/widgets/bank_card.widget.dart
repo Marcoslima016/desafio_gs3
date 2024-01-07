@@ -33,7 +33,7 @@ class _BankCardState extends State<BankCard> {
     Color.fromARGB(255, 3, 95, 97),
   ];
 
-  bool hidden = true;
+  bool hidden = false;
 
   _onTapVisibilityButton() {
     setState(() {
@@ -95,7 +95,6 @@ class _BankCardState extends State<BankCard> {
                       //-- NUMERO --
                       CardNumberDisplay(
                         cardNumber: widget.cardItem.cardNumber,
-                        hidden: hidden,
                       ),
 
                       //-- NOME --
@@ -120,16 +119,16 @@ class _BankCardState extends State<BankCard> {
                     _onTapVisibilityButton();
                   },
                   child: hidden
-                      ? SvgPicture.asset(
+                      ? Icon(
+                          Icons.visibility_off,
+                          size: 18.w,
+                          color: AppTheme.colors.secondary,
+                        )
+                      : SvgPicture.asset(
                           "assets/icons/Eye.svg",
                           color: AppTheme.colors.secondary,
                           width: 18.w,
                           fit: BoxFit.fitWidth,
-                        )
-                      : Icon(
-                          Icons.visibility_off,
-                          size: 18.w,
-                          color: AppTheme.colors.secondary,
                         ),
                 ),
               ],
@@ -178,10 +177,16 @@ class _BankCardState extends State<BankCard> {
                       ),
                     ),
                     SizedBox(height: 4.sp),
-                    AText.bodyLarge(
-                      "R\$ ${Formatter.moneyFormat(widget.cardItem.limit)}",
-                      lineHeight: 1.25,
-                    ),
+                    hidden
+                        ? Container(
+                            height: 19.5.sp,
+                            margin: EdgeInsets.only(left: 1.sp),
+                            child: const HiddenMask(),
+                          )
+                        : AText.bodyLarge(
+                            "R\$ ${Formatter.moneyFormat(widget.cardItem.limit)}",
+                            lineHeight: 1.25,
+                          ),
                   ],
                 ),
 
@@ -225,66 +230,59 @@ class CardNumberDisplay extends StatelessWidget {
   const CardNumberDisplay({
     super.key,
     required this.cardNumber,
-    required this.hidden,
   });
 
   final String cardNumber;
-
-  final bool hidden;
 
   @override
   Widget build(BuildContext context) {
     String partOfCardNumber = cardNumber.split(" ")[1];
 
-    if (hidden) {
-      return SizedBox(
-        height: 21.sp,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 31.59.w,
-              height: 21.sp,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  circle(),
-                  circle(),
-                  circle(),
-                  circle(),
-                ],
+    return SizedBox(
+      height: 21.sp,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const HiddenMask(),
+          SizedBox(width: 6.12.w),
+          SizedBox(
+            height: 21.sp,
+            child: Center(
+              child: AText.bodyMedium(
+                partOfCardNumber,
+                lineHeight: 1.25,
+                align: TextAlign.center,
               ),
             ),
-            SizedBox(width: 6.12.w),
-            SizedBox(
-              height: 21.sp,
-              child: Center(
-                child: AText.bodyMedium(
-                  partOfCardNumber,
-                  lineHeight: 1.25,
-                  align: TextAlign.center,
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    } else {
-      return SizedBox(
-        height: 21.sp,
-        child: Center(
-          child: AText.bodyMedium(
-            cardNumber,
-            lineHeight: 1.25,
-            align: TextAlign.center,
           ),
-        ),
-      );
-    }
+        ],
+      ),
+    );
+  }
+}
+
+class HiddenMask extends StatelessWidget {
+  const HiddenMask({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 31.59.w,
+      height: 21.sp,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _circle(),
+          _circle(),
+          _circle(),
+          _circle(),
+        ],
+      ),
+    );
   }
 
-  Widget circle() {
+  Widget _circle() {
     return Center(
       child: Container(
         width: 6.25.sp,

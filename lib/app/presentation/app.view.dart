@@ -47,8 +47,7 @@ class AppView extends StatelessWidget {
             final MediaQueryData data = MediaQuery.of(context);
 
             return MediaQuery(
-              // data: data.copyWith(textScaleFactor: 1),
-              data: data.copyWith(),
+              data: data.copyWith(textScaleFactor: 1),
               child: Stack(
                 children: [
                   child!,
