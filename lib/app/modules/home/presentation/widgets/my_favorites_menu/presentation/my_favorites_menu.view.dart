@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:desafio_gs3/app/app.imports.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyFavoritesMenu extends StatefulWidget {
   const MyFavoritesMenu({super.key});
@@ -37,11 +38,12 @@ class _MyFavoritesMenuState extends State<MyFavoritesMenu> {
                     AText.labelSmall(
                       "Personalizar",
                       color: Colors.grey[900],
+                      fontWeight: FontWeight.w700,
                     ),
                     SizedBox(width: 3.sp),
                     SvgPicture.asset(
                       "assets/icons/Grid Four 2.svg",
-                      color: AppTheme.colors.primary,
+                      color: AppTheme.colors.secondary,
                       width: 18.sp,
                       fit: BoxFit.fitWidth,
                     ),
@@ -104,12 +106,11 @@ class _MyFavoritesMenuState extends State<MyFavoritesMenu> {
                   ),
                   //
                   MenuButton(
-                    title: "Seguros",
-                    icon: SvgPicture.asset(
-                      "assets/icons/mingcute_safe-shield-2-fill.svg",
+                    title: "Sala VIP",
+                    icon: Icon(
+                      Icons.star_border,
+                      size: 30.sp,
                       color: AppTheme.colors.primary,
-                      width: 30.sp,
-                      fit: BoxFit.fitWidth,
                     ),
                   ),
                   //

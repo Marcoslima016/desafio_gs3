@@ -39,6 +39,7 @@ class _CardsHorizontalListState extends State<CardsHorizontalList> {
                   BankCard(
                     index: index,
                   ),
+                  (index + 1) == controller.cardsList.length ? SizedBox(width: 18.w) : Container(),
                 ],
               );
             },

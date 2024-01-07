@@ -8,6 +8,7 @@ class AText extends StatelessWidget {
   final TextAlign? align;
   final TextStyle? variation;
   final double? lineHeight;
+  final FontWeight? fontWeight;
 
   AText.displaySmall(
     this.data, {
@@ -16,6 +17,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.displaySmall;
 
   AText.displayMedium(
@@ -25,6 +27,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.displayMedium;
 
   AText.displayLarge(
@@ -34,6 +37,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.displayLarge;
 
   AText.headingSmall(
@@ -43,6 +47,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.headingSmall;
 
   AText.headingMedium(
@@ -52,6 +57,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.headingMedium;
 
   AText.headingLarge(
@@ -61,6 +67,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.headingLarge;
 
   AText.bodyMedium(
@@ -70,6 +77,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.bodyMedium;
 
   AText.bodyLarge(
@@ -79,6 +87,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.bodyLarge;
 
   AText.bodySmall(
@@ -88,6 +97,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.bodySmall;
 
   AText.bodyMediumBold(
@@ -97,6 +107,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.bodyMediumBold;
 
   AText.labelRegularBold(
@@ -106,6 +117,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.labelRegularBold;
 
   AText.labelSmall(
@@ -115,6 +127,7 @@ class AText extends StatelessWidget {
     this.variation,
     this.align,
     this.lineHeight,
+    this.fontWeight,
   }) : style = ThemeTextStyles.labelSmall;
 
   @override
@@ -122,7 +135,8 @@ class AText extends StatelessWidget {
     TextStyle finalStyle = style!;
 
     if (color != null) finalStyle = style!.copyWith(color: color);
-    if (lineHeight != null) finalStyle = style!.copyWith(height: lineHeight);
+    if (lineHeight != null) finalStyle = finalStyle.copyWith(height: lineHeight);
+    if (fontWeight != null) finalStyle = finalStyle.copyWith(fontWeight: fontWeight);
 
     return Text(
       data,

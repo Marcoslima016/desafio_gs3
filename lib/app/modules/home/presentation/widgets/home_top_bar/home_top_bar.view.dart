@@ -17,15 +17,10 @@ class _HomeTopBarState extends State<HomeTopBar> {
   Widget build(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).padding.top;
 
-    double paddingTop = 50 - statusBarHeight;
-
-    // double height = (84.h) - statusBarHeight;
-    double height = 56.sp;
-
     return Container(
       width: 1.sw,
-      height: height,
-      // padding: EdgeInsets.only(top: paddingTop),
+      // height: height,
+      margin: EdgeInsets.only(top: 50.h),
       padding: EdgeInsets.only(left: 18.w, right: 18.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,

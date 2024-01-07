@@ -12,8 +12,8 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: AppTheme.colors.surface,
-      statusBarIconBrightness: Brightness.light,
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
     ));
 
     return ScreenUtilInit(
@@ -47,7 +47,8 @@ class AppView extends StatelessWidget {
             final MediaQueryData data = MediaQuery.of(context);
 
             return MediaQuery(
-              data: data.copyWith(textScaleFactor: 1),
+              // data: data.copyWith(textScaleFactor: 1),
+              data: data.copyWith(),
               child: Stack(
                 children: [
                   child!,

@@ -126,12 +126,13 @@ class BankCard extends StatelessWidget {
                             opacity: 0.76,
                             child: AText.labelSmall(
                               "Limite disponível",
+                              lineHeight: 1,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height: 4.h),
+                    SizedBox(height: 4.sp),
                     AText.bodyLarge(
                       "R\$ 7.867,80",
                       lineHeight: 1.25,
@@ -153,12 +154,13 @@ class BankCard extends StatelessWidget {
                             opacity: 0.76,
                             child: AText.labelSmall(
                               "Melhor data de compra",
+                              lineHeight: 1,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height: 4.h),
+                    SizedBox(height: 4.sp),
                     AText.bodyLarge(
                       "20",
                       lineHeight: 1.25,
