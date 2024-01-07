@@ -65,8 +65,10 @@ class _LastTransactionsListState extends State<LastTransactionsList> {
 
           //---------------------
 
-          BuildList(
-            controller: controller,
+          Expanded(
+            child: BuildList(
+              controller: controller,
+            ),
           ),
         ],
       ),

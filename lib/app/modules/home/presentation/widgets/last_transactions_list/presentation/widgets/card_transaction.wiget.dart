@@ -18,9 +18,10 @@ class CardTransaction extends StatefulWidget {
 }
 
 class _CardTransactionState extends State<CardTransaction> {
+  late Transaction transactionItem;
   @override
   Widget build(BuildContext context) {
-    Transaction transactionItem = widget.transactionItem;
+    transactionItem = widget.transactionItem;
 
     return Container(
       width: 1.sw,
@@ -80,34 +81,39 @@ class _CardTransactionState extends State<CardTransaction> {
           //
 
           //VALOR/PARCELAMENTO
-          Padding(
-            padding: EdgeInsets.only(right: 15.22.w),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //--------------- VALOR ---------------
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //--------------- VALOR ---------------
 
-                AText.headingSmall(
-                  widget.transactionItem.amount.toString(),
-                  lineHeight: 1.66,
-                ),
+              AText.headingSmall(
+                widget.transactionItem.amount.toString(),
+                lineHeight: 1.66,
+              ),
 
-                SizedBox(height: 4.h),
+              SizedBox(height: 4.h),
 
-                //------------ PARCELAMENTO ------------
+              //------------ PARCELAMENTO ------------
 
-                AText.bodySmall(
-                  'em ' + transactionItem.installmentAmount.toString() + 'x',
-                  color: Color(0xff69696B),
-                  lineHeight: 1.6,
-                ),
-              ],
-            ),
+              buildInstallmentDisplay(),
+            ],
           ),
         ],
       ),
     );
+  }
+
+  Widget buildInstallmentDisplay() {
+    if (transactionItem.installmentAmount > 0) {
+      return AText.bodySmall(
+        'em ' + transactionItem.installmentAmount.toString() + 'x',
+        color: Color(0xff69696B),
+        lineHeight: 1.6,
+      );
+    } else {
+      return Container();
+    }
   }
 
   Widget buildIcon() {

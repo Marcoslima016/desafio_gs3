@@ -25,7 +25,7 @@ class DateDivider extends StatelessWidget {
 
     DateTime? lastDividerDate;
 
-    int indexItem = 0;
+    int indexItem = index;
 
     List<String> dividersTexts = [];
 
@@ -66,8 +66,19 @@ class DateDivider extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           if (index == (dividersTexts.length - 1)) {
-            return DateDividerCard(
-              dateText: dividersTexts[index],
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                indexItem != 0
+                    ? Padding(
+                        padding: EdgeInsets.only(bottom: 13.h),
+                        child: lineDivider(),
+                      )
+                    : Container(),
+                DateDividerCard(
+                  dateText: dividersTexts[index],
+                ),
+              ],
             );
           } else {
             return EmptyDateDividerCard(
@@ -77,8 +88,19 @@ class DateDivider extends StatelessWidget {
         },
       );
     } else {
-      return Container();
+      return lineDivider();
     }
+  }
+
+  Widget lineDivider() {
+    return Container(
+      width: 1.sw,
+      height: 1.h,
+      margin: EdgeInsets.only(left: 18.w, right: 18.w),
+      decoration: const BoxDecoration(
+        color: Color.fromRGBO(229, 229, 229, 0.70),
+      ),
+    );
   }
 }
 
@@ -134,33 +156,14 @@ class DateDividerCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.only(top: 8.h, bottom: 8.h),
-          padding: EdgeInsets.only(
-            top: 4.sp,
-            bottom: 4.sp,
-            left: 8.sp,
-            right: 8.sp,
-          ),
-          decoration: BoxDecoration(
-            color: const Color(0xffEDE7F6),
-            borderRadius: BorderRadius.all(
-              Radius.circular(4.sp),
-            ),
-          ),
-          child: Container(
-            height: 19.h,
-            child: Column(
-              children: [
-                SizedBox(height: 1.h),
-                Text(
-                  dateText,
-                  style: GoogleFonts.roboto(
-                    color: Color(0xff383938),
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
+          margin: EdgeInsets.only(left: 24.w),
+          child: Text(
+            dateText,
+            style: GoogleFonts.mulish(
+              color: AppTheme.colors.secondary,
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w700,
+              height: 1.5,
             ),
           ),
         ),

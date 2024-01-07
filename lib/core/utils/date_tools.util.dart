@@ -7,7 +7,7 @@ class DateTools {
 
     String monthText = getMonthByIndex(dateTime.month);
 
-    String result = weekDayText + ", " + dayText + " de " + monthText;
+    String result = weekDayText + ", " + dayText + " " + monthText;
 
     return result;
   }
@@ -33,29 +33,29 @@ class DateTools {
 
   String getMonthByIndex(int monthIndex) {
     if (monthIndex == 1) {
-      return "Janeiro";
+      return "Jan";
     } else if (monthIndex == 2) {
-      return "Fevereiro";
+      return "Fev";
     } else if (monthIndex == 3) {
-      return "Março";
+      return "Mar";
     } else if (monthIndex == 4) {
-      return "Abril";
+      return "Abr";
     } else if (monthIndex == 5) {
-      return "Maio";
+      return "Mai";
     } else if (monthIndex == 6) {
-      return "Junho";
+      return "Jun";
     } else if (monthIndex == 7) {
-      return "Julho";
+      return "Jul";
     } else if (monthIndex == 8) {
-      return "Agosto";
+      return "Ago";
     } else if (monthIndex == 9) {
-      return "Setembro";
+      return "Set";
     } else if (monthIndex == 10) {
-      return "Outubro";
+      return "Out";
     } else if (monthIndex == 11) {
-      return "Novembro";
+      return "Nov";
     } else if (monthIndex == 12) {
-      return "Dezembro";
+      return "Dez";
     }
     return "-";
   }
