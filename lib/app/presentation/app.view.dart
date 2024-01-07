@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../app.imports.dart';
 
 class AppView extends StatelessWidget {
@@ -11,10 +10,12 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
 
     return ScreenUtilInit(
       designSize: const Size(360, 800),
@@ -30,22 +31,20 @@ class AppView extends StatelessWidget {
               brightness: Brightness.light,
               primary: AppTheme.colors.primary,
               onPrimary: AppTheme.colors.onPrimary,
-              surfaceTint: Colors.red,
+              surfaceTint: Colors.grey[800],
               secondary: AppTheme.colors.secondary,
-              onSecondary: Colors.yellow,
-              background: Colors.orange,
+              onSecondary: Colors.white,
+              background: Colors.white,
               onBackground: Colors.grey[400]!,
-              surface: Colors.blue,
+              surface: Colors.white,
               onSurface: Colors.grey[500]!,
-              error: Colors.indigo,
-              onError: Color.fromARGB(255, 96, 76, 18),
-              primaryContainer: Colors.red,
+              error: Colors.red,
+              onError: Colors.white,
             ),
           ),
           initialRoute: MainPageView.routeTag,
           builder: (context, child) {
             final MediaQueryData data = MediaQuery.of(context);
-
             return MediaQuery(
               data: data.copyWith(textScaleFactor: 1),
               child: Stack(
@@ -55,7 +54,6 @@ class AppView extends StatelessWidget {
               ),
             );
           },
-          // navigatorObservers: [RouteManager()],
           onGenerateRoute: AppRoutes().generateRoute,
         );
       },
