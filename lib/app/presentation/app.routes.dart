@@ -1,15 +1,13 @@
+import 'package:desafio_gs3/lib.imports.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
   //
-
-  @override
-  List<Widget> pages = [
-    //
+  static List<Widget> pages = [
+    const HomeView(),
+    const MainPageView(),
   ];
 
-  /// Gera a rota referente a uma chamada feita
-  @override
   Route generateRoute(RouteSettings settings) {
     final screen = _getScreen(settings);
     return MaterialPageRoute(
@@ -18,10 +16,11 @@ class AppRoutes {
     );
   }
 
-  // Recupera a tela de uma rota
   Widget _getScreen(RouteSettings settings) {
     for (Widget page in pages) {
-      if (settings.name == page.key.toString()) {
+      var t = page.key.toString();
+      var t2 = Key(settings.name!);
+      if (Key(settings.name!) == page.key) {
         return page;
       }
     }

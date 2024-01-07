@@ -11,21 +11,19 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = AppTheme.colors.primary;
-
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: AppTheme.colors.surface,
-      statusBarIconBrightness: Brightness.light,
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
     ));
 
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: const Size(360, 800),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'POC MVL Pattern',
+          title: 'DESAFIO GS3',
           theme: ThemeData(
             scaffoldBackgroundColor: AppTheme.colors.background,
             colorScheme: ColorScheme(
@@ -33,14 +31,9 @@ class AppView extends StatelessWidget {
               primary: AppTheme.colors.primary,
               onPrimary: AppTheme.colors.onPrimary,
               surfaceTint: Colors.red,
-              // surfaceVariant: Colors.red,
-              // Colors that are not relevant to AppBar in LIGHT mode:
-              // primaryVariant: Colors.grey,
-              secondary: Color.fromARGB(255, 70, 70, 70),
-              // secondaryVariant: Colors.grey,
+              secondary: AppTheme.colors.secondary,
               onSecondary: Colors.yellow,
               background: Colors.orange,
-
               onBackground: Colors.grey[400]!,
               surface: Colors.blue,
               onSurface: Colors.grey[500]!,
@@ -49,8 +42,7 @@ class AppView extends StatelessWidget {
               primaryContainer: Colors.red,
             ),
           ),
-          initialRoute: "game",
-
+          initialRoute: MainPageView.routeTag,
           builder: (context, child) {
             final MediaQueryData data = MediaQuery.of(context);
 

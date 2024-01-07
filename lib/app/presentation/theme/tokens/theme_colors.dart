@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ThemeColors {
-  final Color primary = const Color(0xFFBA1818);
+  final Color primary = const Color(0xff3C6AB2);
 
-  final Color secondary = const Color(0xff111111);
+  final Color secondary = const Color(0xff2890CF);
 
   final Color surface = const Color(0xff171717);
 
