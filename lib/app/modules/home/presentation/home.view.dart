@@ -52,7 +52,10 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget divider(Color color, double marginTop) {
+  Widget divider(
+    Color color,
+    double marginTop,
+  ) {
     return Container(
       width: 1.sw,
       height: 1.h,

@@ -128,7 +128,7 @@ class _CardTransactionState extends State<CardTransaction> {
             ),
             shape: BoxShape.circle,
           ),
-          transform: Matrix4.translationValues(1.sp, -2.sp, 0),
+          transform: Matrix4.translationValues(2.sp, -2.sp, 0),
           child: Center(
             child: Text(
               "!",
@@ -174,6 +174,7 @@ class _CardTransactionState extends State<CardTransaction> {
       iconPath,
       color: AppTheme.colors.primary,
       height: 22.sp,
+      fit: BoxFit.none,
     );
   }
 }

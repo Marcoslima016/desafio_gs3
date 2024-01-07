@@ -123,7 +123,6 @@ class BottomBarButton extends StatelessWidget {
             SvgPicture.asset(
               iconPath,
               color: selected ? AppTheme.colors.primary : defaultColor,
-              // width: 27.sp,
               height: 27.sp,
               fit: BoxFit.none,
             ),
