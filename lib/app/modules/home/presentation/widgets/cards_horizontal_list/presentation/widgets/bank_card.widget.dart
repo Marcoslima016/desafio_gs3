@@ -3,13 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class BankCard extends StatelessWidget {
+class BankCard extends StatefulWidget {
   const BankCard({
     super.key,
     required this.index,
+    required this.cardItem,
   });
 
   final int index;
+
+  final BankCardDetails cardItem;
+
+  @override
+  State<BankCard> createState() => _BankCardState();
+}
+
+class _BankCardState extends State<BankCard> {
+  late int index;
+
+  late BankCardDetails cardItem;
 
   static const List<List<Color>> grandientColorsVariations = [
     [Color(0xff2B66BC), Color(0xff132D55)],
@@ -20,6 +32,21 @@ class BankCard extends StatelessWidget {
     Color(0xff3660A1),
     Color.fromARGB(255, 3, 95, 97),
   ];
+
+  bool hidden = true;
+
+  _onTapVisibilityButton() {
+    setState(() {
+      hidden = !hidden;
+    });
+  }
+
+  @override
+  void initState() {
+    index = widget.index;
+    cardItem = widget.cardItem;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +60,8 @@ class BankCard extends StatelessWidget {
           end: Alignment.centerRight,
           stops: const [0, 0.99],
           colors: [
-            grandientColorsVariations[index][0],
-            grandientColorsVariations[index][1],
+            grandientColorsVariations[widget.index][0],
+            grandientColorsVariations[widget.index][1],
           ],
         ),
       ),
@@ -63,14 +90,19 @@ class BankCard extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 16.w),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AText.bodyMedium(
-                        "**** 1234",
+                      //-- NUMERO --
+                      CardNumberDisplay(
+                        cardNumber: widget.cardItem.cardNumber,
+                        hidden: hidden,
                       ),
+
+                      //-- NOME --
                       Opacity(
                         opacity: 0.76,
                         child: AText.bodyMedium(
-                          "GS3 TEC",
+                          widget.cardItem.name,
                         ),
                       ),
                     ],
@@ -81,13 +113,24 @@ class BankCard extends StatelessWidget {
                   child: Container(),
                 ),
 
-                //--------- BOTAO VER MAIS ---------
+                //----- BOTAO MOSTRAR/ESCONDER -----
 
-                SvgPicture.asset(
-                  "assets/icons/Eye.svg",
-                  color: AppTheme.colors.secondary,
-                  width: 18.w,
-                  fit: BoxFit.fitWidth,
+                InkWell(
+                  onTap: () {
+                    _onTapVisibilityButton();
+                  },
+                  child: hidden
+                      ? SvgPicture.asset(
+                          "assets/icons/Eye.svg",
+                          color: AppTheme.colors.secondary,
+                          width: 18.w,
+                          fit: BoxFit.fitWidth,
+                        )
+                      : Icon(
+                          Icons.visibility_off,
+                          size: 18.w,
+                          color: AppTheme.colors.secondary,
+                        ),
                 ),
               ],
             ),
@@ -99,7 +142,7 @@ class BankCard extends StatelessWidget {
             width: 1.sw,
             height: 1.h,
             margin: EdgeInsets.only(top: 15.h),
-            color: dividerColorsVariations[index],
+            color: dividerColorsVariations[widget.index],
           ),
 
           //
@@ -136,7 +179,7 @@ class BankCard extends StatelessWidget {
                     ),
                     SizedBox(height: 4.sp),
                     AText.bodyLarge(
-                      "R\$ 7.867,80",
+                      "R\$ ${Formatter.moneyFormat(widget.cardItem.limit)}",
                       lineHeight: 1.25,
                     ),
                   ],
@@ -164,7 +207,7 @@ class BankCard extends StatelessWidget {
                     ),
                     SizedBox(height: 4.sp),
                     AText.bodyLarge(
-                      "20",
+                      widget.cardItem.bestDayToBuy.toString(),
                       lineHeight: 1.25,
                     ),
                   ],
@@ -173,6 +216,83 @@ class BankCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CardNumberDisplay extends StatelessWidget {
+  const CardNumberDisplay({
+    super.key,
+    required this.cardNumber,
+    required this.hidden,
+  });
+
+  final String cardNumber;
+
+  final bool hidden;
+
+  @override
+  Widget build(BuildContext context) {
+    String partOfCardNumber = cardNumber.split(" ")[1];
+
+    if (hidden) {
+      return SizedBox(
+        height: 21.sp,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 31.59.w,
+              height: 21.sp,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  circle(),
+                  circle(),
+                  circle(),
+                  circle(),
+                ],
+              ),
+            ),
+            SizedBox(width: 6.12.w),
+            SizedBox(
+              height: 21.sp,
+              child: Center(
+                child: AText.bodyMedium(
+                  partOfCardNumber,
+                  lineHeight: 1.25,
+                  align: TextAlign.center,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return SizedBox(
+        height: 21.sp,
+        child: Center(
+          child: AText.bodyMedium(
+            cardNumber,
+            lineHeight: 1.25,
+            align: TextAlign.center,
+          ),
+        ),
+      );
+    }
+  }
+
+  Widget circle() {
+    return Center(
+      child: Container(
+        width: 6.25.sp,
+        height: 6.25.sp,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+        ),
       ),
     );
   }
