@@ -2,23 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:desafio_gs3/app/app.imports.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'widgets/transactions_list.widget.dart';
 
-import 'widgets/build_list.widget.dart';
-
-class LastTransactionsList extends StatefulWidget {
-  const LastTransactionsList({super.key});
+class LastTransactions extends StatefulWidget {
+  const LastTransactions({super.key});
 
   @override
-  State<LastTransactionsList> createState() => _LastTransactionsListState();
+  State<LastTransactions> createState() => _LastTransactionsState();
 }
 
-class _LastTransactionsListState extends State<LastTransactionsList> {
-  late final LastTransactionsListController controller;
+class _LastTransactionsState extends State<LastTransactions> {
+  late final LastTransactionsController controller;
 
   @override
   void initState() {
-    controller = LastTransactionsListController();
+    controller = LastTransactionsController();
     super.initState();
   }
 
@@ -33,8 +31,7 @@ class _LastTransactionsListState extends State<LastTransactionsList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //
-          //---------------------
-
+          //---------------
           Padding(
             padding: EdgeInsets.only(left: 22.w, right: 22.w),
             child: Row(
@@ -63,10 +60,9 @@ class _LastTransactionsListState extends State<LastTransactionsList> {
             ),
           ),
 
-          //---------------------
-
+          //-------------
           Expanded(
-            child: BuildList(
+            child: TransactionsList(
               controller: controller,
             ),
           ),

@@ -22,7 +22,7 @@ enum TransactionMarketType {
   superMarket,
 }
 
-class LastTransactionsListController {
+class LastTransactionsController {
   List<Transaction> transactionsList = [
     Transaction(
       title: "Apple",

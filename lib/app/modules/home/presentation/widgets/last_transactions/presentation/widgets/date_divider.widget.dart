@@ -1,10 +1,7 @@
 import 'package:desafio_gs3/lib.imports.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../presentation.imports.dart';
 
 class DateDivider extends StatelessWidget {
   const DateDivider({
@@ -18,7 +15,6 @@ class DateDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final List<WalletTransaction> transactions = Get.find<List<WalletTransaction>>(tag: "extract-transactions-list");
     final int index = transactions.indexOf(item);
 
     bool insertDateDivider = false;
@@ -39,7 +35,7 @@ class DateDivider extends StatelessWidget {
         insertDateDivider = true;
         int datesDif = lastDividerDate.difference(item.dateTimeParse).inDays;
         if (datesDif > 1) {
-          //-- DEFINIR DIVISORES DE DATAS SEM DADOS --
+          //DEFINIR DIVISORES DE DATAS SEM DADOS
           for (int i = 0; i < datesDif - 1; i++) {
             DateTime dateTimeOfDivider = lastDividerDate.subtract(Duration(days: i + 1));
             dividersTexts.add(

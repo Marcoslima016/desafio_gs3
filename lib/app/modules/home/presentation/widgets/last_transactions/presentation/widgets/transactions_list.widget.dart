@@ -1,27 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../presentation.imports.dart';
-import 'card_transaction.wiget.dart';
 import 'widgets.imports.dart';
 
-class BuildList extends StatefulWidget {
-  const BuildList({
+class TransactionsList extends StatefulWidget {
+  const TransactionsList({
     super.key,
     required this.controller,
   });
 
-  final LastTransactionsListController controller;
+  final LastTransactionsController controller;
 
   @override
-  State<BuildList> createState() => _BuildListState();
+  State<TransactionsList> createState() => _TransactionsListState();
 }
 
-class _BuildListState extends State<BuildList> {
-  late final LastTransactionsListController controller;
+class _TransactionsListState extends State<TransactionsList> {
+  late final LastTransactionsController controller;
 
   @override
   void initState() {
@@ -36,7 +32,7 @@ class _BuildListState extends State<BuildList> {
       margin: EdgeInsets.only(top: 10.h),
       child: controller.transactionsList.isNotEmpty
           ? ListView.builder(
-              key: Key("wallet_extract_list"),
+              key: const Key("wallet_extract_list"),
               itemCount: controller.transactionsList.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
@@ -53,7 +49,6 @@ class _BuildListState extends State<BuildList> {
 
                     //--------------- LIST CARD --------------
 
-                    //CARD
                     CardTransaction(
                       transactionItem: controller.transactionsList[index],
                     ),
@@ -64,6 +59,7 @@ class _BuildListState extends State<BuildList> {
                 );
               },
             )
+          //--------------- LISTA VAZIA --------------
           : Center(
               child: Padding(
                 padding: EdgeInsets.only(bottom: 50.h),
@@ -71,7 +67,7 @@ class _BuildListState extends State<BuildList> {
                   "Nenhuma transação realizada.",
                   textAlign: TextAlign.start,
                   style: GoogleFonts.roboto(
-                    color: Color.fromARGB(255, 200, 200, 200),
+                    color: const Color.fromARGB(255, 200, 200, 200),
                     fontSize: 17.sp,
                     fontWeight: FontWeight.w400,
                   ),
@@ -82,7 +78,6 @@ class _BuildListState extends State<BuildList> {
   }
 
   Widget endMargin(int index) {
-    var t = index + 1;
     if (index + 1 >= controller.transactionsList.length) {
       return SizedBox(height: 20.h);
     } else {

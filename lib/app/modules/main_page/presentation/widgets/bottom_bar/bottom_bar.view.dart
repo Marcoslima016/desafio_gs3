@@ -1,7 +1,5 @@
 import 'package:desafio_gs3/lib.imports.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -104,7 +102,7 @@ class BottomBarButton extends StatelessWidget {
 
   final Function() onTap;
 
-  BottomBarButton({
+  const BottomBarButton({
     super.key,
     required this.iconPath,
     required this.title,

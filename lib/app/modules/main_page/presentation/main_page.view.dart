@@ -1,10 +1,6 @@
 import 'package:desafio_gs3/app/app.imports.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../main_page.imports.dart';
 
 class MainPageView extends StatefulWidget {
   const MainPageView() : super(key: const Key(routeTag));

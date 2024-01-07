@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:desafio_gs3/app/app.imports.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MyFavoritesMenu extends StatefulWidget {
   const MyFavoritesMenu({super.key});
@@ -99,9 +98,7 @@ class _MyFavoritesMenuState extends State<MyFavoritesMenu> {
                     icon: SvgPicture.asset(
                       "assets/icons/Mail.svg",
                       color: AppTheme.colors.primary,
-                      // width: 30.sp,
                       height: 30.sp,
-                      // fit: BoxFit.fill,
                     ),
                   ),
                   //

@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'presentation.imports.dart';
 
 class CardsHorizontalList extends StatefulWidget {
@@ -49,3 +46,5 @@ class _CardsHorizontalListState extends State<CardsHorizontalList> {
     );
   }
 }
+
+

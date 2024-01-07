@@ -1,7 +1,5 @@
 import 'package:desafio_gs3/lib.imports.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -36,17 +34,19 @@ class _CardTransactionState extends State<CardTransaction> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //
+
           //ICONE / TITULO / DATAHORA
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //--------------- ICONE ---------------
+
               PrimaryCard(
                 child: SizedBox(
                   width: 45.7.sp,
                   height: 45.7.sp,
                   child: Center(
-                    child: buildIcon(),
+                    child: _buildIcon(),
                   ),
                 ),
               ),
@@ -70,7 +70,7 @@ class _CardTransactionState extends State<CardTransaction> {
 
                     AText.bodySmall(
                       transactionItem.dateTimeTextRFC,
-                      color: Color(0xff69696B),
+                      color: const Color(0xff69696B),
                       lineHeight: 1.6,
                     ),
                   ],
@@ -80,10 +80,10 @@ class _CardTransactionState extends State<CardTransaction> {
           ),
           //
 
-          //VALOR/PARCELAMENTO
+          //VALOR / PARCELAMENTO
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               //--------------- VALOR ---------------
 
@@ -96,7 +96,7 @@ class _CardTransactionState extends State<CardTransaction> {
 
               //------------ PARCELAMENTO ------------
 
-              buildInstallmentDisplay(),
+              _buildInstallmentDisplay(),
             ],
           ),
         ],
@@ -104,11 +104,11 @@ class _CardTransactionState extends State<CardTransaction> {
     );
   }
 
-  Widget buildInstallmentDisplay() {
+  Widget _buildInstallmentDisplay() {
     if (transactionItem.installmentAmount > 0) {
       return AText.bodySmall(
         'em ' + transactionItem.installmentAmount.toString() + 'x',
-        color: Color(0xff69696B),
+        color: const Color(0xff69696B),
         lineHeight: 1.6,
       );
     } else {
@@ -116,12 +116,11 @@ class _CardTransactionState extends State<CardTransaction> {
     }
   }
 
-  Widget buildIcon() {
+  Widget _buildIcon() {
     return SvgPicture.asset(
       "assets/icons/Mail.svg",
       color: AppTheme.colors.primary,
       height: 22.sp,
-      // fit: BoxFit.fill,
     );
   }
 }

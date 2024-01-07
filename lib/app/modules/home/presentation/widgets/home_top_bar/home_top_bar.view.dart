@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,18 +17,23 @@ class _HomeTopBarState extends State<HomeTopBar> {
 
     return Container(
       width: 1.sw,
-      // height: height,
-      margin: EdgeInsets.only(top: 50.h),
-      padding: EdgeInsets.only(left: 18.w, right: 18.w),
+      margin: EdgeInsets.only(
+        top: 50.h,
+      ),
+      padding: EdgeInsets.only(
+        left: 18.w,
+        right: 18.w,
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Container(
+          SizedBox(
             width: 1.sw,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //--------- BOTAO MENU --------
+
                 SvgPicture.asset(
                   "assets/icons/Group 530128.svg",
                   color: Colors.white,
@@ -62,6 +65,7 @@ class _HomeTopBarState extends State<HomeTopBar> {
                 ),
 
                 //----- BOTOES CHAT/NOTIFICACOES ----
+
                 Row(
                   children: [
                     SvgPicture.asset(
@@ -84,6 +88,7 @@ class _HomeTopBarState extends State<HomeTopBar> {
           ),
 
           //--------- DIVIDER ---------
+
           Container(
             width: 1.sw,
             height: 1.h,

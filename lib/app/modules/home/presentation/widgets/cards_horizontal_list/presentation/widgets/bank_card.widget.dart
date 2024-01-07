@@ -1,7 +1,5 @@
 import 'package:desafio_gs3/lib.imports.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -27,15 +25,13 @@ class BankCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 300.w,
-      // height: 140.h,
       margin: EdgeInsets.only(right: 15.sp),
-      // padding: EdgeInsets.all(13.sp),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.sp),
         gradient: LinearGradient(
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
-          stops: [0, 0.99],
+          stops: const [0, 0.99],
           colors: [
             grandientColorsVariations[index][0],
             grandientColorsVariations[index][1],
@@ -53,15 +49,17 @@ class BankCard extends StatelessWidget {
             child: Row(
               children: [
                 //--------- IMAGEM ---------
+
                 Container(
                   width: 88.sp,
                   height: 56.sp,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xffD9D9D9),
                   ),
                 ),
 
-                //--------- DADOS ---------
+                //---------- DADOS ---------
+
                 Padding(
                   padding: EdgeInsets.only(left: 16.w),
                   child: Column(
@@ -84,6 +82,7 @@ class BankCard extends StatelessWidget {
                 ),
 
                 //--------- BOTAO VER MAIS ---------
+
                 SvgPicture.asset(
                   "assets/icons/Eye.svg",
                   color: AppTheme.colors.secondary,
@@ -95,6 +94,7 @@ class BankCard extends StatelessWidget {
           ),
 
           //--------- DIVIDER ---------
+
           Container(
             width: 1.sw,
             height: 1.h,
@@ -102,6 +102,7 @@ class BankCard extends StatelessWidget {
             color: dividerColorsVariations[index],
           ),
 
+          //
           Padding(
             padding: EdgeInsets.only(
               top: 6.5.sp,
@@ -114,6 +115,7 @@ class BankCard extends StatelessWidget {
               children: [
                 //
                 //------ LIMITE DISPONIVEL ------
+
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -1,18 +1,19 @@
 class DateTools {
-  //
+  DateTools();
+
   String presentationTextWeekDayNumberDayAndMonthText(DateTime dateTime) {
-    String weekDayText = getWeekDayByIndex(dateTime.weekday);
+    String weekDayText = _getWeekDayByIndex(dateTime.weekday);
 
     String dayText = dateTime.day.toString().length > 1 ? dateTime.day.toString() : "0" + dateTime.day.toString();
 
-    String monthText = getMonthByIndex(dateTime.month);
+    String monthText = _getMonthByIndex(dateTime.month);
 
     String result = weekDayText + ", " + dayText + " " + monthText;
 
     return result;
   }
 
-  String getWeekDayByIndex(int weekDayIndex) {
+  String _getWeekDayByIndex(int weekDayIndex) {
     if (weekDayIndex == 1) {
       return "Segunda-Feira";
     } else if (weekDayIndex == 2) {
@@ -31,7 +32,7 @@ class DateTools {
     return "-";
   }
 
-  String getMonthByIndex(int monthIndex) {
+  String _getMonthByIndex(int monthIndex) {
     if (monthIndex == 1) {
       return "Jan";
     } else if (monthIndex == 2) {
