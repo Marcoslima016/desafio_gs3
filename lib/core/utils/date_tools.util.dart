@@ -4,11 +4,20 @@ class DateTools {
   String presentationTextWeekDayNumberDayAndMonthText(DateTime dateTime) {
     String weekDayText = _getWeekDayByIndex(dateTime.weekday);
 
+    String prefix = "";
+    DateTime fakeToday = DateTime(2023, 09, 05);
+    final daysfromNow = _daysBetween(fakeToday, dateTime);
+    if (daysfromNow == 0) {
+      prefix = "Hoje, ";
+    } else if (daysfromNow == 1) {
+      prefix = "Amanhã, ";
+    }
+
     String dayText = dateTime.day.toString().length > 1 ? dateTime.day.toString() : "0" + dateTime.day.toString();
 
     String monthText = _getMonthByIndex(dateTime.month);
 
-    String result = weekDayText + ", " + dayText + " " + monthText;
+    String result = '$prefix $dayText $monthText';
 
     return result;
   }
@@ -59,5 +68,11 @@ class DateTools {
       return "Dez";
     }
     return "-";
+  }
+
+  int _daysBetween(DateTime from, DateTime to) {
+    from = DateTime(from.year, from.month, from.day);
+    to = DateTime(to.year, to.month, to.day);
+    return (to.difference(from).inHours / 24).round();
   }
 }

@@ -77,9 +77,10 @@ class DateDivider extends StatelessWidget {
               ],
             );
           } else {
-            return EmptyDateDividerCard(
-              dateText: dividersTexts[index],
-            );
+            return Container();
+            // return EmptyDateDividerCard(
+            //   dateText: dividersTexts[index],
+            // );
           }
         },
       );

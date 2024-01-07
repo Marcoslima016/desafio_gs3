@@ -69,7 +69,7 @@ class _CardTransactionState extends State<CardTransaction> {
                     //--------------- DATA / HR ---------------
 
                     AText.bodySmall(
-                      transactionItem.dateTimeTextRFC,
+                      transactionItem.dateTimeDisplay,
                       color: const Color(0xff69696B),
                       lineHeight: 1.6,
                     ),
@@ -88,7 +88,7 @@ class _CardTransactionState extends State<CardTransaction> {
               //--------------- VALOR ---------------
 
               AText.headingSmall(
-                widget.transactionItem.amount.toString(),
+                "R\$${Formatter.moneyFormat(widget.transactionItem.amount)}",
                 lineHeight: 1.66,
               ),
 
@@ -107,7 +107,7 @@ class _CardTransactionState extends State<CardTransaction> {
   Widget _buildInstallmentDisplay() {
     if (transactionItem.installmentAmount > 0) {
       return AText.bodySmall(
-        'em ' + transactionItem.installmentAmount.toString() + 'x',
+        'em ${transactionItem.installmentAmount.toString()} x',
         color: const Color(0xff69696B),
         lineHeight: 1.6,
       );
@@ -117,8 +117,17 @@ class _CardTransactionState extends State<CardTransaction> {
   }
 
   Widget _buildIcon() {
+    String iconPath = 'assets/icons/light/sr-cart-trolley-v2.svg';
+
+    if (transactionItem.marketType == TransactionMarketType.superMarket) {
+      iconPath = 'assets/icons/light/sr-cart-trolley-v2.svg';
+    } else if (transactionItem.marketType == TransactionMarketType.transport) {
+      iconPath = 'assets/icons/light/shopping.svg';
+    } else if (transactionItem.marketType == TransactionMarketType.virtual) {
+      iconPath = 'assets/icons/Mobile 01.svg';
+    }
     return SvgPicture.asset(
-      "assets/icons/Mail.svg",
+      iconPath,
       color: AppTheme.colors.primary,
       height: 22.sp,
     );
