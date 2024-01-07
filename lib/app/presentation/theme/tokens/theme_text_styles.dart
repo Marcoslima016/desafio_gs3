@@ -46,15 +46,15 @@ class ThemeTextStyles {
 
   static IAppTextStyle headingMedium = IAppTextStyle.style(
     _parent.copyWith(
-      fontSize: 16,
-      fontWeight: FontWeight.w900,
-      color: Colors.grey[50],
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+      color: Color(0xff1A1A1A),
     ),
   );
 
   static IAppTextStyle headingSmall = IAppTextStyle.style(
     _parent.copyWith(
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: FontWeight.w700,
       color: Color(0xff1A1A1A),
     ),

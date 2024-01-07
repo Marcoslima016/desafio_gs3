@@ -14,6 +14,14 @@ class LastTransactionsList extends StatefulWidget {
 }
 
 class _LastTransactionsListState extends State<LastTransactionsList> {
+  late final LastTransactionsListController controller;
+
+  @override
+  void initState() {
+    controller = LastTransactionsListController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,8 +40,9 @@ class _LastTransactionsListState extends State<LastTransactionsList> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AText.headingSmall(
+                AText.headingMedium(
                   "Últimos lançamentos",
+                  lineHeight: 1.42,
                 ),
                 Row(
                   children: [
@@ -56,7 +65,9 @@ class _LastTransactionsListState extends State<LastTransactionsList> {
 
           //---------------------
 
-          BuildList(),
+          BuildList(
+            controller: controller,
+          ),
         ],
       ),
     );

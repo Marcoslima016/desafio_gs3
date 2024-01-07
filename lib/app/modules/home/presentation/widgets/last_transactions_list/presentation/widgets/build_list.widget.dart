@@ -9,7 +9,12 @@ import 'card_transaction.wiget.dart';
 import 'widgets.imports.dart';
 
 class BuildList extends StatefulWidget {
-  const BuildList({super.key});
+  const BuildList({
+    super.key,
+    required this.controller,
+  });
+
+  final LastTransactionsListController controller;
 
   @override
   State<BuildList> createState() => _BuildListState();
@@ -20,7 +25,7 @@ class _BuildListState extends State<BuildList> {
 
   @override
   void initState() {
-    controller = LastTransactionsListController();
+    controller = widget.controller;
     super.initState();
   }
 
@@ -28,12 +33,12 @@ class _BuildListState extends State<BuildList> {
   Widget build(BuildContext context) {
     return Container(
       width: 1.sw,
+      margin: EdgeInsets.only(top: 10.h),
       // padding: EdgeInsets.only(left: 24.w, right: 24.w, top: 32.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 0),
+          SizedBox(
             child: controller.transactionsList.isNotEmpty
                 ? ListView.builder(
                     key: Key("wallet_extract_list"),
@@ -45,7 +50,7 @@ class _BuildListState extends State<BuildList> {
                         children: [
                           //
 
-                          index == 0 ? SizedBox(height: 2.2.h) : Container(),
+                          // index == 0 ? SizedBox(height: 10.h) : Container(),
 
                           //------------- DATE DIVIDER -------------
 
@@ -56,7 +61,27 @@ class _BuildListState extends State<BuildList> {
 
                           //--------------- LIST CARD --------------
 
-                          const CardTransaction(),
+                          //LINE DIVIDER
+                          Container(
+                            width: 1.sw,
+                            height: 1.h,
+                            margin: EdgeInsets.only(left: 18.w, right: 18.w),
+                            decoration: const BoxDecoration(
+                              color: Color.fromRGBO(229, 229, 229, 0.70),
+                            ),
+                          ),
+
+                          //CARD
+                          CardTransaction(
+                            transactionItem: controller.transactionsList[index],
+                          ),
+
+                          //ESPAÇAMENTO NO FINAL DA LISTA
+                          (index + 1) == controller.transactionsList.length
+                              ? SizedBox(
+                                  height: 80.h,
+                                )
+                              : Container(),
 
                           //----- LOADING MORE ITEMS ------
 

@@ -30,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
 
             //- DIVISOR -
             divider(
-              const Color(0xffE5E5E5B2).withOpacity(0.7),
+              Color.fromARGB(255, 235, 235, 235).withOpacity(0.7),
               16.sp,
             ),
 
@@ -44,7 +44,9 @@ class _HomeViewState extends State<HomeView> {
             ),
 
             //----- ULTIMOS LANÇAMENTOS -----
-            const LastTransactionsList(),
+            const Expanded(
+              child: LastTransactionsList(),
+            ),
           ],
         ),
       ),

@@ -45,5 +45,19 @@ class LastTransactionsListController {
       installmentAmount: 12,
       marketType: TransactionMarketType.virtual,
     ),
+    Transaction(
+      title: "Apple",
+      dateTimeTextRFC: "2022-09-05 22:35:00",
+      amount: 545.99,
+      installmentAmount: 12,
+      marketType: TransactionMarketType.virtual,
+    ),
+    Transaction(
+      title: "Apple",
+      dateTimeTextRFC: "2022-09-05 22:35:00",
+      amount: 545.99,
+      installmentAmount: 12,
+      marketType: TransactionMarketType.virtual,
+    ),
   ];
 }

@@ -30,7 +30,7 @@ class _MyFavoritesMenuState extends State<MyFavoritesMenu> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AText.headingSmall(
+                AText.headingMedium(
                   "Meus favoritos",
                 ),
                 Row(
