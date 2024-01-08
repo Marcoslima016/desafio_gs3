@@ -1,3 +1,5 @@
+import 'package:desafio_gs3/lib.imports.dart';
+
 class CardsHorizontalListController {
   List<BankCardDetails> cardsList = [
     BankCardDetails(
@@ -13,18 +15,4 @@ class CardsHorizontalListController {
       bestDayToBuy: 5,
     ),
   ];
-}
-
-class BankCardDetails {
-  final String cardNumber;
-  final String name;
-  final double limit;
-  final int bestDayToBuy;
-
-  BankCardDetails({
-    required this.cardNumber,
-    required this.name,
-    required this.limit,
-    required this.bestDayToBuy,
-  });
 }
