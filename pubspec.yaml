@@ -1,8 +1,8 @@
 name: desafio_gs3
-description: A new Flutter project.
+description: Desafio recrutamento GS3. 
 
 
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
@@ -12,12 +12,31 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   flutter_screenutil: 5.6.0
+  flutter_svg: 1.0.3
+  google_fonts: 3.0.0
+  intl: 0.18.1
+  flutter_native_splash: ^2.1.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: 0.10.0
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: false
+  image_path: "assets/brand/icon.png"
+
+flutter_native_splash:
+  image: "assets/brand/icon.png"
+  color: "#FFFFFF"
 
 flutter:
-
   uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/icons/light/
+    - assets/brand/
+    - assets/images/

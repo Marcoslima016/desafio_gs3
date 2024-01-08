@@ -1,16 +1,26 @@
-# desafio_gs3
+<p align="center">
+  <a>
+    <img src="./assets/brand/icon.png" height="158" >
+  </a>
+  <h1 align="center">Desafio recrutamento GS3</h1>
+  <div align="center">
+    Candidato: Marcos Lima
+  </div>
+</p>
 
-A new Flutter project.
 
-## Getting Started
+<div style="height:100px"></div>
 
-This project is a starting point for a Flutter application.
+<!--============================ BADGES ============================-->
 
-A few resources to get you started if this is your first Flutter project:
+---
+<p align="center">
+  <a>
+    <img src="https://img.shields.io/badge/FLUTTER-3.3.7-blue">
+  </a>
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div style="height:200px"></div>
+
+<br/> <br/>
