@@ -135,8 +135,8 @@ class _CardTransactionState extends State<CardTransaction> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
-                height: 1,
-                fontSize: 10.5.sp,
+                height: 1.1,
+                fontSize: 8.5.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),

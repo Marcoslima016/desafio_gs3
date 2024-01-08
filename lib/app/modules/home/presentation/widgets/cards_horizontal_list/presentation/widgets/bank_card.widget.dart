@@ -118,18 +118,21 @@ class _BankCardState extends State<BankCard> {
                   onTap: () {
                     _onTapVisibilityButton();
                   },
-                  child: hidden
-                      ? Icon(
-                          Icons.visibility_off,
-                          size: 18.w,
-                          color: AppTheme.colors.secondary,
-                        )
-                      : SvgPicture.asset(
-                          "assets/icons/Eye.svg",
-                          color: AppTheme.colors.secondary,
-                          width: 18.w,
-                          fit: BoxFit.fitWidth,
-                        ),
+                  child: Container(
+                    padding: EdgeInsets.only(top: 5.sp, bottom: 5.sp, left: 5.sp),
+                    child: hidden
+                        ? Icon(
+                            Icons.visibility_off,
+                            size: 18.w,
+                            color: AppTheme.colors.secondary,
+                          )
+                        : SvgPicture.asset(
+                            "assets/icons/Eye.svg",
+                            color: AppTheme.colors.secondary,
+                            width: 18.w,
+                            fit: BoxFit.fitWidth,
+                          ),
+                  ),
                 ),
               ],
             ),

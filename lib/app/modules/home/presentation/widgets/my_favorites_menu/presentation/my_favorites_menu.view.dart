@@ -64,7 +64,7 @@ class _MyFavoritesMenuState extends State<MyFavoritesMenu> {
                   SizedBox(width: 16.sp),
                   //
                   MenuButton(
-                    title: "Cartão Virtual",
+                    title: "Cartão virtual",
                     icon: SvgPicture.asset(
                       "assets/icons/light/gym.svg",
                       color: AppTheme.colors.primary,

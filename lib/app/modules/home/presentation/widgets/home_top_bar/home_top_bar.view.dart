@@ -93,7 +93,7 @@ class _HomeTopBarState extends State<HomeTopBar> {
                             "assets/icons/Shape.svg",
                             color: Colors.white,
                             width: 15.sp,
-                            fit: BoxFit.fitWidth,
+                            fit: BoxFit.fitHeight,
                           ),
 
                           //BADGE CONTADOR
@@ -101,25 +101,25 @@ class _HomeTopBarState extends State<HomeTopBar> {
                             right: 0,
                             top: 0,
                             child: Container(
-                              width: 12.sp,
-                              height: 12.sp,
+                              width: 11.sp,
+                              height: 11.sp,
                               decoration: BoxDecoration(
                                 color: Color(0xff2890CF),
                                 border: Border.all(
                                   color: Colors.white,
-                                  width: 2.sp,
+                                  width: 1.5.sp,
                                 ),
                                 shape: BoxShape.circle,
                               ),
-                              transform: Matrix4.translationValues(5.sp, -4.5.sp, 0),
+                              transform: Matrix4.translationValues(4.5.sp, -4.sp, 0),
                               child: Center(
                                 child: Text(
                                   "3",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: Colors.white,
-                                    height: 1,
-                                    fontSize: 7.sp,
+                                    height: 1.22,
+                                    fontSize: 5.93.sp,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
