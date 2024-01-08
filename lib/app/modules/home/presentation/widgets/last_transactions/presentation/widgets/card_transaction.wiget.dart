@@ -172,7 +172,7 @@ class _CardTransactionState extends State<CardTransaction> {
     return SvgPicture.asset(
       iconPath,
       color: AppTheme.colors.primary,
-      height: 22.sp,
+      height: 24.sp,
       fit: BoxFit.none,
     );
   }

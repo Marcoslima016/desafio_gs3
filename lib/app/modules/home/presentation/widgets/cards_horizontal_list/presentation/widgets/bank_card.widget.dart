@@ -75,7 +75,7 @@ class _BankCardState extends State<BankCard> {
             ),
             child: Row(
               children: [
-                //--------- IMAGEM ---------
+                //------------ IMAGEM ------------
 
                 Container(
                   width: 88.sp,
@@ -83,24 +83,24 @@ class _BankCardState extends State<BankCard> {
                   decoration: const BoxDecoration(
                     color: Color(0xffD9D9D9),
                   ),
-                  // child: Image.asset(
-                  //   "assets/images/card_banner.png",
-                  // ),
                 ),
 
-                //---------- DADOS ---------
+                //------------- DADOS ------------
 
                 Padding(
                   padding: EdgeInsets.only(left: 16.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      //-- NUMERO --
+                      //
+                      //- NUMERO -
+
                       CardNumberDisplay(
                         cardNumber: widget.cardItem.cardNumber,
                       ),
 
                       //-- NOME --
+
                       Opacity(
                         opacity: 0.76,
                         child: AText.bodyMedium(
@@ -115,33 +115,14 @@ class _BankCardState extends State<BankCard> {
                   child: Container(),
                 ),
 
-                //----- BOTAO MOSTRAR/ESCONDER -----
+                //------ BOTAO MOSTRAR/ESCONDER -------
 
-                InkWell(
-                  onTap: () {
-                    _onTapVisibilityButton();
-                  },
-                  child: Container(
-                    padding: EdgeInsets.only(top: 5.sp, bottom: 5.sp, left: 5.sp),
-                    child: hidden
-                        ? Icon(
-                            Icons.visibility_off,
-                            size: 18.w,
-                            color: AppTheme.colors.secondary,
-                          )
-                        : SvgPicture.asset(
-                            "assets/icons/Eye.svg",
-                            color: AppTheme.colors.secondary,
-                            width: 18.w,
-                            fit: BoxFit.fitWidth,
-                          ),
-                  ),
-                ),
+                _buttonShowHide(),
               ],
             ),
           ),
 
-          //--------- DIVIDER ---------
+          //------------ DIVIDER ------------
 
           Container(
             width: 1.sw,
@@ -162,72 +143,103 @@ class _BankCardState extends State<BankCard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //
-                //------ LIMITE DISPONIVEL ------
+                //--------- LIMITE DISPONIVEL ---------
 
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 13.sp,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Opacity(
-                            opacity: 0.76,
-                            child: AText.labelSmall(
-                              "Limite disponível",
-                              lineHeight: 1,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 4.sp),
-                    hidden
-                        ? Container(
-                            height: 19.5.sp,
-                            margin: EdgeInsets.only(left: 1.sp),
-                            child: const HiddenMask(),
-                          )
-                        : AText.bodyLarge(
-                            "R\$ ${Formatter.moneyFormat(widget.cardItem.limit)}",
-                            lineHeight: 1.25,
-                          ),
-                  ],
-                ),
+                _availableLimit(),
 
-                //------ MELHOR DATA DE COMPRA ------
+                //------- MELHOR DATA DE COMPRA -------
 
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    SizedBox(
-                      height: 13.sp,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Opacity(
-                            opacity: 0.76,
-                            child: AText.labelSmall(
-                              "Melhor data de compra",
-                              lineHeight: 1,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 4.sp),
-                    AText.bodyLarge(
-                      widget.cardItem.bestDayToBuy.toString(),
-                      lineHeight: 1.25,
-                    ),
-                  ],
-                ),
+                _bestDayToBuy(),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buttonShowHide() {
+    return InkWell(
+      onTap: () {
+        _onTapVisibilityButton();
+      },
+      child: Container(
+        padding: EdgeInsets.only(top: 5.sp, bottom: 5.sp, left: 5.sp),
+        child: hidden
+            ? Icon(
+                Icons.visibility_off,
+                size: 18.w,
+                color: AppTheme.colors.secondary,
+              )
+            : SvgPicture.asset(
+                "assets/icons/Eye.svg",
+                color: AppTheme.colors.secondary,
+                width: 18.w,
+                fit: BoxFit.fitWidth,
+              ),
+      ),
+    );
+  }
+
+  Widget _availableLimit() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 13.sp,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Opacity(
+                opacity: 0.76,
+                child: AText.labelSmall(
+                  "Limite disponível",
+                  lineHeight: 1,
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 4.sp),
+        hidden
+            ? Container(
+                height: 19.5.sp,
+                margin: EdgeInsets.only(left: 1.sp),
+                child: const HiddenMask(),
+              )
+            : AText.bodyLarge(
+                "R\$ ${Formatter.moneyFormat(widget.cardItem.limit)}",
+                lineHeight: 1.25,
+              ),
+      ],
+    );
+  }
+
+  Widget _bestDayToBuy() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        SizedBox(
+          height: 13.sp,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Opacity(
+                opacity: 0.76,
+                child: AText.labelSmall(
+                  "Melhor data de compra",
+                  lineHeight: 1,
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 4.sp),
+        AText.bodyLarge(
+          widget.cardItem.bestDayToBuy.toString(),
+          lineHeight: 1.25,
+        ),
+      ],
     );
   }
 }
