@@ -83,6 +83,9 @@ class _BankCardState extends State<BankCard> {
                   decoration: const BoxDecoration(
                     color: Color(0xffD9D9D9),
                   ),
+                  // child: Image.asset(
+                  //   "assets/images/card_banner.png",
+                  // ),
                 ),
 
                 //---------- DADOS ---------

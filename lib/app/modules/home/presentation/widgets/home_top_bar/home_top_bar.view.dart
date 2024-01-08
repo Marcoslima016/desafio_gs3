@@ -119,7 +119,7 @@ class _HomeTopBarState extends State<HomeTopBar> {
                                   style: TextStyle(
                                     color: Colors.white,
                                     height: 1.22,
-                                    fontSize: 5.93.sp,
+                                    fontSize: 5.93.h,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),

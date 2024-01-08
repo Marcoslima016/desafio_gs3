@@ -2,6 +2,8 @@ import 'package:desafio_gs3/app/app.imports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../lib.imports.dart';
+
 class MainPageView extends StatefulWidget {
   const MainPageView() : super(key: const Key(routeTag));
 
@@ -14,9 +16,9 @@ class MainPageView extends StatefulWidget {
 class _MainPageViewState extends State<MainPageView> {
   final List<Widget> tabs = [
     const HomeView(),
-    Container(width: 1.sw, height: 1.sh, color: Colors.grey[300]),
-    Container(width: 1.sw, height: 1.sh, color: Colors.grey[300]),
-    Container(width: 1.sw, height: 1.sh, color: Colors.grey[300]),
+    const PageUnderDevelopment(),
+    const PageUnderDevelopment(),
+    const PageUnderDevelopment(),
   ];
 
   int currentIndex = 0;
