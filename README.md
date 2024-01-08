@@ -8,3 +8,16 @@
   </div>
 </p>
 
+<!--============================ BADGES ============================-->
+
+---
+<p align="center">
+  <a>
+    <img src="https://img.shields.io/badge/FLUTTER-3.3.7-blue">
+  </a>
+</p>
+
+
+<div style="height:200px"></div>
+
+<br/> <br/>
