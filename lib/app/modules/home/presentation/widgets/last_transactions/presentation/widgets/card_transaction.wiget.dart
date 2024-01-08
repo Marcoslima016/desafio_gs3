@@ -153,6 +153,7 @@ class _CardTransactionState extends State<CardTransaction> {
         'em ${transactionItem.installmentAmount.toString()} x',
         color: const Color(0xff69696B),
         lineHeight: 1.6,
+        fontWeight: FontWeight.w700,
       );
     } else {
       return Container();

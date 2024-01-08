@@ -1,8 +1,8 @@
 name: desafio_gs3
-description: A new Flutter project.
+description: Desafio recrutamento GS3. 
 
 
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
@@ -35,9 +35,7 @@ flutter_native_splash:
 flutter:
   uses-material-design: true
 
-
   assets:
-
     - assets/icons/
     - assets/icons/light/
     - assets/brand/
