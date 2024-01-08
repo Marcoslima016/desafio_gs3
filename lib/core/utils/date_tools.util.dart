@@ -2,8 +2,6 @@ class DateTools {
   DateTools();
 
   String presentationTextWeekDayNumberDayAndMonthText(DateTime dateTime) {
-    String weekDayText = _getWeekDayByIndex(dateTime.weekday);
-
     String prefix = "";
     DateTime fakeToday = DateTime(2023, 09, 05);
     final daysfromNow = _daysBetween(fakeToday, dateTime);
@@ -13,32 +11,13 @@ class DateTools {
       prefix = "Amanhã, ";
     }
 
-    String dayText = dateTime.day.toString().length > 1 ? dateTime.day.toString() : "0" + dateTime.day.toString();
+    String dayText = dateTime.day.toString().length > 1 ? dateTime.day.toString() : "0${dateTime.day.toString()}";
 
     String monthText = _getMonthByIndex(dateTime.month);
 
     String result = '$prefix $dayText $monthText';
 
     return result;
-  }
-
-  String _getWeekDayByIndex(int weekDayIndex) {
-    if (weekDayIndex == 1) {
-      return "Segunda-Feira";
-    } else if (weekDayIndex == 2) {
-      return "Terça-Feira";
-    } else if (weekDayIndex == 3) {
-      return "Quarta-Feira";
-    } else if (weekDayIndex == 4) {
-      return "Quinta-Feira";
-    } else if (weekDayIndex == 5) {
-      return "Sexta-Feira";
-    } else if (weekDayIndex == 6) {
-      return "Sábado";
-    } else if (weekDayIndex == 7) {
-      return "Domingo";
-    }
-    return "-";
   }
 
   String _getMonthByIndex(int monthIndex) {

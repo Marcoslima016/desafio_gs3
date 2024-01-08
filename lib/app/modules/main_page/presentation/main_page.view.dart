@@ -1,7 +1,4 @@
-import 'package:desafio_gs3/app/app.imports.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../lib.imports.dart';
 
 class MainPageView extends StatefulWidget {

@@ -48,7 +48,7 @@ class ThemeTextStyles {
     _parent.copyWith(
       fontSize: 14,
       fontWeight: FontWeight.w700,
-      color: Color(0xff1A1A1A),
+      color: const Color(0xff1A1A1A),
     ),
   );
 
@@ -56,7 +56,7 @@ class ThemeTextStyles {
     _parent.copyWith(
       fontSize: 12,
       fontWeight: FontWeight.w700,
-      color: Color(0xff1A1A1A),
+      color: const Color(0xff1A1A1A),
     ),
   );
 
@@ -86,7 +86,7 @@ class ThemeTextStyles {
     _parent.copyWith(
       fontSize: 10,
       fontWeight: FontWeight.w400,
-      color: Color(0xff1A1A1A),
+      color: const Color(0xff1A1A1A),
       height: 1.10,
     ),
   );
@@ -107,7 +107,7 @@ class ThemeTextStyles {
     _parent.copyWith(
       fontSize: 8,
       fontWeight: FontWeight.w400,
-      color: Color(0xffFFFFFF),
+      color: const Color(0xffFFFFFF),
     ),
   );
 

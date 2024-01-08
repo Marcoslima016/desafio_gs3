@@ -18,8 +18,6 @@ class AppRoutes {
 
   Widget _getScreen(RouteSettings settings) {
     for (Widget page in pages) {
-      var t = page.key.toString();
-      var t2 = Key(settings.name!);
       if (Key(settings.name!) == page.key) {
         return page;
       }

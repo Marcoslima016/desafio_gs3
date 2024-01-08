@@ -13,8 +13,6 @@ class HomeTopBar extends StatefulWidget {
 class _HomeTopBarState extends State<HomeTopBar> {
   @override
   Widget build(BuildContext context) {
-    double statusBarHeight = MediaQuery.of(context).padding.top;
-
     return Container(
       width: 1.sw,
       margin: EdgeInsets.only(
@@ -104,7 +102,7 @@ class _HomeTopBarState extends State<HomeTopBar> {
                               width: 11.sp,
                               height: 11.sp,
                               decoration: BoxDecoration(
-                                color: Color(0xff2890CF),
+                                color: const Color(0xff2890CF),
                                 border: Border.all(
                                   color: Colors.white,
                                   width: 1.5.sp,

@@ -2,7 +2,6 @@ import 'package:desafio_gs3/lib.imports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CardTransaction extends StatefulWidget {
   const CardTransaction({
@@ -121,9 +120,9 @@ class _CardTransactionState extends State<CardTransaction> {
           width: 13.sp,
           height: 13.sp,
           decoration: BoxDecoration(
-            color: Color(0xffFFAC31),
+            color: const Color(0xffFFAC31),
             border: Border.all(
-              color: Color(0xffFF9901),
+              color: const Color(0xffFF9901),
               width: 2.sp,
             ),
             shape: BoxShape.circle,
